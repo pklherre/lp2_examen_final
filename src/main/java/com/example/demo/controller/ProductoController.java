@@ -61,7 +61,7 @@ public class ProductoController {
         } else {
             return "redirect:/login";
         }
-        return "Producto/Listado";
+        return "Listado";
     }
 	
 	@GetMapping("/registrar_producto")
@@ -76,7 +76,7 @@ public class ProductoController {
 	    UsuarioEntity usuario = usuarioService.buscarUsuarioPorCorreo(correo);
 	    model.addAttribute("usuario", usuario);
 
-	    return "Producto/Registro";
+	    return "Registro";
 	}
 	
 	@PostMapping("/registrar_producto")
@@ -96,7 +96,7 @@ public class ProductoController {
 	    UsuarioEntity usuario = usuarioService.buscarUsuarioPorCorreo(correo);
 	    model.addAttribute("usuario", usuario);
         model.addAttribute("producto", producto);
-        return "Producto/Ver";
+        return "Ver";
     }
 	
 	@GetMapping("/editar_producto/{id}")
@@ -112,7 +112,7 @@ public class ProductoController {
         model.addAttribute("producto", producto);
         List<CategoriaEntity> categorias = categoriaService.listarCategoria();
         model.addAttribute("categorias", categorias);
-        return "Producto/Editar";
+        return "Editar";
     }
 	
 	@PostMapping("/actualizar_producto")
